@@ -57,7 +57,7 @@ const App = () => {
           </nav>
           <MainAsideMenu />
           <MainSubNav
-            visible={subMenuVisible}
+            visible={subMenuVisible ? 1 : 0}
             onSubMenuVisible={handleSubMenuVisible}
           />
         </HeaderInner>
