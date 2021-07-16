@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import styled from "@emotion/styled";
-import { subNavs } from "../../fixture/subNav";
+
 import { Inner } from "../css/common";
 
 import SubNav from "./SubNav";
+
+import { subNavs } from "../../fixture/subNav";
 
 const MainSubNav = ({ visible, onSubMenuVisible }) => {
   const [listHeight, setListHeight] = useState(0);

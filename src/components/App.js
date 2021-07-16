@@ -1,13 +1,14 @@
 import React, { useState, useCallback, useEffect } from "react";
 
 import styled from "@emotion/styled";
+
 import { Inner } from "../css/common";
 
 import MainNav from "./MainNav";
 import MainAsideMenu from "./MainAsideMenu";
+import MainSubNav from "./MainSubNav";
 
 import { mainNavs } from "../../fixture/mainNav";
-import MainSubNav from "./MainSubNav";
 
 const App = () => {
   const [navigations, setNavigations] = useState(
