@@ -45,6 +45,9 @@ const Nav = styled.li(({ active }) => ({
       background: "#3366ff",
       content: '""',
     },
+    "@media (max-width: 1028px)": {
+      padding: "15px 10px",
+    },
   },
 }));
 

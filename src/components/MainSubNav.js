@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 import { Inner } from "../css/common";
 
-import SubNav from "./SubNav";
+import SubNavItem from "./SubNavItem";
 
 import { subNavs } from "../../fixture/subNav";
 
@@ -14,7 +14,7 @@ const MainSubNav = ({ visible, onSubMenuVisible }) => {
 
   useEffect(() => {
     const height = subNavRef?.current?.clientHeight;
-    setListHeight(height);
+    setListHeight(height + 80);
   }, [visible, subNavRef?.current?.clientHeight]);
 
   return (
@@ -27,7 +27,7 @@ const MainSubNav = ({ visible, onSubMenuVisible }) => {
         <SubNavInner ref={subNavRef}>
           {subNavs.map(({ id, oneDepth, twoDepth }) => {
             return (
-              <SubNav
+              <SubNavItem
                 key={id}
                 oneDepthMenus={oneDepth}
                 twoDepthMenus={twoDepth}
@@ -50,6 +50,9 @@ const NavWrap = styled.div(({ display }) => ({
   height: "100%",
   background: "rgba(0,0,0,0.3)",
   transition: "0.3s ease-in-out",
+  "@media (max-width: 768px)": {
+    display: "none",
+  },
 }));
 
 const NavList = styled.div(({ display, height }) => ({
@@ -63,6 +66,7 @@ const NavList = styled.div(({ display, height }) => ({
   height: display ? height : "0px",
   transition: "0.3s ease-in-out",
   background: "#fff",
+  boxSizing: "border-box",
 }));
 
 const SubNavInner = styled(Inner)({
