@@ -2,17 +2,27 @@ import React from "react";
 
 import styled from "@emotion/styled";
 
+import { CgProfile } from "react-icons/cg";
+import { RiSearch2Line } from "react-icons/ri";
+import { IoMdNotificationsOutline } from "react-icons/io";
+
 const MainAsideMenu = () => {
   return (
     <Wrap>
       <li>
-        <Button type="button">검색</Button>
+        <Button type="button">
+          <RiSearch2Line size="25" />
+        </Button>
       </li>
       <li>
-        <Button type="button">알림</Button>
+        <Button type="button">
+          <IoMdNotificationsOutline size="25" fontWeight="bold" />
+        </Button>
       </li>
       <li>
-        <Button type="button">프로필</Button>
+        <Button type="button">
+          <CgProfile size="25" />
+        </Button>
       </li>
       <BorderLeftMenu type="border">
         <BorderRadiusButton type="button">기업 서비스</BorderRadiusButton>
@@ -28,7 +38,7 @@ const Wrap = styled.ul({
 
 const Button = styled.button({
   position: "relative",
-  padding: "15px 10px",
+  padding: "10px",
 });
 
 const BorderLeftMenu = styled.li({
