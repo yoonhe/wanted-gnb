@@ -2,7 +2,7 @@ import React from "react";
 
 import styled from "@emotion/styled";
 
-const MainNav = ({ navigations, onClick, onSubMenuVisible }) => {
+const MainNav = ({ navigations = [], onClick, onSubMenuVisible }) => {
   function handleMouseOver(id) {
     if (id === 0) {
       return onSubMenuVisible(true);
