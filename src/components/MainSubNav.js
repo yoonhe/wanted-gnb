@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 
 import styled from "@emotion/styled";
 
@@ -73,4 +73,4 @@ const SubNavInner = styled(Inner)({
   display: "flex",
 });
 
-export default MainSubNav;
+export default memo(MainSubNav);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import styled from "@emotion/styled";
 
@@ -90,4 +90,4 @@ const MobileMenu = styled.li({
   },
 });
 
-export default MainAsideMenu;
+export default memo(MainAsideMenu);
