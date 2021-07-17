@@ -28,6 +28,14 @@ module.exports = {
         exclude: /node_modules/,
         use: "babel-loader",
       },
+      {
+        test: /\.png$/,
+        loader: "file-loader",
+        options: {
+          publicPath: "./",
+          name: "[name].[ext]",
+        },
+      },
     ],
   },
 };
