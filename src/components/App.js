@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 
 import styled from "@emotion/styled";
 
@@ -9,8 +9,11 @@ import MainAsideMenu from "./MainAsideMenu";
 import MainSubNav from "./MainSubNav";
 
 import { mainNavs } from "../../fixture/mainNav";
+import MobileMainMenu from "./MobileMainMenu";
 
 const App = () => {
+  const [mobileMainMenuVisible, setMobileMainMenuVisible] = useState(false);
+
   const [navigations, setNavigations] = useState(
     mainNavs.map((nav, index) => ({
       id: index,
@@ -39,6 +42,10 @@ const App = () => {
     setSubMenuVisible(isVisible);
   }, []);
 
+  const handleMobileMenuVisible = useCallback((isVisible) => {
+    setMobileMainMenuVisible(isVisible);
+  }, []);
+
   useEffect(() => {
     handleNavClick(0);
   }, []);
@@ -61,13 +68,17 @@ const App = () => {
               onSubMenuVisible={handleSubMenuVisible}
             />
           </nav>
-          <MainAsideMenu />
+          <MainAsideMenu onMobileMenuVisible={handleMobileMenuVisible} />
           <MainSubNav
             visible={subMenuVisible ? 1 : 0}
             onSubMenuVisible={handleSubMenuVisible}
           />
         </HeaderInner>
       </Header>
+      <MobileMainMenu
+        visible={mobileMainMenuVisible}
+        onVisible={handleMobileMenuVisible}
+      />
       <main>
         <Inner>컨텐츠 영역</Inner>
       </main>

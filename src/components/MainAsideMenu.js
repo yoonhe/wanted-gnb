@@ -7,7 +7,7 @@ import { RiSearch2Line } from "react-icons/ri";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-const MainAsideMenu = () => {
+const MainAsideMenu = ({ onMobileMenuVisible }) => {
   return (
     <>
       <Wrap>
@@ -29,7 +29,7 @@ const MainAsideMenu = () => {
         <BorderLeftMenu type="border" onlyWeb={true}>
           <BorderRadiusButton type="button">기업 서비스</BorderRadiusButton>
         </BorderLeftMenu>
-        <MobileMenu>
+        <MobileMenu onClick={() => onMobileMenuVisible(true)}>
           <Button type="button">
             <GiHamburgerMenu size="20" />
           </Button>
