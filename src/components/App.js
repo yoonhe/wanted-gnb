@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 
 import styled from "@emotion/styled";
 
@@ -16,6 +16,7 @@ const App = () => {
       id: index,
       name: nav,
       active: false,
+      onlyWeb: index > 1,
     }))
   );
 
@@ -42,14 +43,18 @@ const App = () => {
     handleNavClick(0);
   }, []);
 
+  useEffect(() => {
+    console.log(window.innerWidth);
+  }, [window.innerWidth]);
+
   return (
     <>
       <Header>
         <HeaderInner>
-          <Logo>
-            <button type="button">Wanted</button>
-          </Logo>
           <nav>
+            <Logo>
+              <button type="button">Wanted</button>
+            </Logo>
             <MainNav
               navigations={navigations}
               onClick={handleNavClick}
@@ -79,6 +84,11 @@ const HeaderInner = styled(Inner)({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+  nav: {
+    display: "flex",
+    flex: "1",
+    alignItems: "center",
+  },
 });
 
 const Logo = styled.p({

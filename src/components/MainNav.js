@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import styled from "@emotion/styled";
 
@@ -12,11 +12,12 @@ const MainNav = ({ navigations = [], onClick, onSubMenuVisible }) => {
 
   return (
     <NavList>
-      {navigations.map(({ id, name, active }) => (
+      {navigations.map(({ id, name, active, onlyWeb }) => (
         <Nav
           key={id}
           active={active}
           onClick={() => onClick(id)}
+          onlyWeb={onlyWeb}
           onMouseOver={() => handleMouseOver(id)}
         >
           <button type="button">{name}</button>
@@ -28,9 +29,14 @@ const MainNav = ({ navigations = [], onClick, onSubMenuVisible }) => {
 
 const NavList = styled.ul({
   display: "flex",
+  flex: "1",
+  justifyContent: "center",
+  "@media (max-width: 768px)": {
+    justifyContent: "flex-start",
+  },
 });
 
-const Nav = styled.li(({ active }) => ({
+const Nav = styled.li(({ active, onlyWeb }) => ({
   button: {
     position: "relative",
     padding: "15px",
@@ -48,7 +54,10 @@ const Nav = styled.li(({ active }) => ({
     "@media (max-width: 1028px)": {
       padding: "15px 10px",
     },
+    "@media (max-width: 768px)": {
+      display: onlyWeb && "none",
+    },
   },
 }));
 
-export default MainNav;
+export default memo(MainNav);
